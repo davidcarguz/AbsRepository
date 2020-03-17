@@ -4,7 +4,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -16,6 +15,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.offset.PointOption;
 import net.serenitybdd.core.pages.PageObject;
 
@@ -36,12 +36,11 @@ public class AbsWorkoutPageObjects extends PageObject {
 	String btnComenzarSpn = "//android.view.ViewGroup/android.widget.TextView[@text = \"Ready to go\"]";
 	
 	public void iniciarApp() {
-		dc.setCapability("deviceName", "Xiaomi Mi5");
-        dc.setCapability("udid", "d728d2a97cf5");
-        dc.setCapability("automationName", "uiautomator2");
-        dc.setCapability("platformName", "Android");
-        dc.setCapability("platformVersion", "8.1.0");
-        dc.setCapability("app", "C:\\Users\\DAVID\\Desktop\\Six Pack in 30 Days Abs Workout_v1.0.14.apk");
+		dc.setCapability(MobileCapabilityType.DEVICE_NAME, "d728d2a97cf5");
+        dc.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
+        dc.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        dc.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0");
+        dc.setCapability(MobileCapabilityType.APP, "C:\\Users\\DAVID\\Desktop\\Six Pack in 30 Days Abs Workout_v1.0.14.apk");//opcional. el apk esta en el proyecto en resources/app
         dc.setCapability("skipUnlock","true");
         dc.setCapability("appPackage", "sixpack.sixpackabs.absworkout");
         dc.setCapability("appActivity","sixpack.sixpackabs.absworkout.activity.StartActivity");
